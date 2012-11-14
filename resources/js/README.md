@@ -73,9 +73,9 @@ var num = (a + 10) * 3;
 
 ### A. Parens, Braces, Linebreaks
 
-	- Always use curly braces, even if you don't have to (single statement after if/while/for/..).
-	- Opening curly brace appears on the same line.
-	- Closing curly brace appears by itself on a new line.
+- Always use curly braces, even if you don't have to (single statement after if/while/for/..).
+- Opening curly brace appears on the same line.
+- Closing curly brace appears by itself on a new line.
 
 ```javascript
 if (condition) {
@@ -185,16 +185,29 @@ var fooBar = new FooBar({ a: "alpha" });
 Function call examples:
 
 ```javascript
+// Single and multiple arguments:
 foo(10);
 foo("bar");
 foo("bar1", "bar2");
+
+// Array and object literal arguments:
 foo([ "bar1", "bar2" ]);
 foo({ a: "bar1", b: "bar2" });
+
+// More complex literals:
 foo({
     a: "bar1",
     b: "bar2",
-    c: "bar3"
+    c: "bar3",
+    success: function() {
+        // ...
+    },
+    error: function() {
+        // ...
+    }
 });
+
+// Callback:
 foo(function(result, options) {
 	// callback statements
 });
@@ -210,5 +223,5 @@ Whether you prefer single or double shouldn't matter, there is no difference in 
 
 ### F. End of Lines and Empty Lines
 
-Whitespace can ruin diffs and make changesets impossible to read. Consider incorporating a pre-commit hook that removes end-of-line whitespace and blanks spaces on empty lines automatically. Most modern editors can be set up to automatically remove trailing whitespace automatically on file save.
+Whitespace can ruin diffs and make changesets impossible to read. Consider incorporating a pre-commit hook that removes end-of-line whitespace and blanks spaces on empty lines automatically. Most modern editors can be set up to do that on file save.
 
