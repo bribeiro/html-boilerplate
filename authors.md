@@ -1,2 +1,6 @@
+#### Primary Development ####
 - HAUS Team
-- aubricus
+
+
+#### Contributions and Suggestions ####
+- Aubrey Taylor | aubricus
