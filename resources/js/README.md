@@ -2,12 +2,16 @@
 
 This document is loosely based upon Github's [Idiomatic.js](https://github.com/rwldrn/idiomatic.js).
 
-## All code in any code-base should look like a single person typed it, no matter how many people contributed.
+### All code in any code-base should look like a single person typed it, no matter how many people contributed.
 
 > "Arguments over style are pointless. There should be a style guide, and you should follow it."
+> 
 > _Rebecca_ _Murphey_
 
+&nbsp;
+
 > "Part of being a good steward to a successful project is realizing that writing code for yourself is a Bad Idea™. If thousands of people are using your code, then write your code for maximum clarity, not your personal preference of how to get clever within the spec."
+> 
 > _Idan_ _Gazit_
 
 ## Table of Contents
@@ -27,23 +31,25 @@ This document is loosely based upon Github's [Idiomatic.js](https://github.com/r
 
 The following sections outline a _reasonable_ style guide for modern JavaScript development and are not meant to be prescriptive. The most important take-away is the **law of code style consistency**. Whatever you choose as the style for your project should be considered law.
 
-## <a name="whitespace">1. Whitespace</a>
 
-	- **Never mix spaces and tabs.**
-	- When beginning a project, before any code is written, the project lead chooses between soft indents (spaces) or real tabs. Consider this **law**.
-	- If your editor supports it, always work with the "show invisibles" setting turned on. The benefits of this practice are:
-		- Enforced consistency
-		- Eliminating end of line whitespace
-		- Eliminating blank line whitespace
-		- Commits and diffs that are easier to read
-	- Follow English language conventions where appropriate. E.g., punctuation (comma, semicolon etc.) is followed by a space, but not preceeded by one.
+<a name="whitespace"></a>
+## 1. Whitespace
+
+- **Never mix spaces and tabs.**
+- When beginning a project, before any code is written, the project lead chooses between soft indents (spaces) or real tabs. Consider this **law**.
+- If your editor supports it, always work with the "show invisibles" setting turned on. The benefits of this practice are:
+	- Enforced consistency
+	- Eliminating end of line whitespace
+	- Eliminating blank line whitespace
+	- Commits and diffs that are easier to read
+- Follow English language conventions where appropriate. E.g., punctuation (comma, colon, semicolon etc.) is followed by a space, but not preceeded by one.
 
 Conditionals and Loops:
 
-	- Keywords are followed by a space.
-	- Opening brace is not followed by a space.
-	- Closing brace is not preceeded by a space.
-	- Opening curly brace is preceeded by a space.
+- Keywords are followed by a space.
+- Opening brace is not followed by a space.
+- Closing brace is not preceeded by a space.
+- Opening curly brace is preceeded by a space.
 
 ```javascript
 if (condition) {
@@ -62,7 +68,8 @@ var num = (a + 10) * 3;
 ```
 
 
-## <a name="spacing">2. Beautiful Syntax</a>
+<a name="spacing"></a>
+## 2. Beautiful Syntax
 
 ### A. Parens, Braces, Linebreaks
 
