@@ -4,35 +4,35 @@ This document is loosely based upon Github's [Idiomatic.js](https://github.com/r
 
 ### All code in any code-base should look like a single person typed it, no matter how many people contributed.
 
-> "Arguments over style are pointless. There should be a style guide, and you should follow it."
-> 
+> "Arguments over style are pointless. There should be a style guide, and you should follow it."   
 > _Rebecca_ _Murphey_
 
-&nbsp;
-
-> "Part of being a good steward to a successful project is realizing that writing code for yourself is a Bad Idea™. If thousands of people are using your code, then write your code for maximum clarity, not your personal preference of how to get clever within the spec."
-> 
+> "Part of being a good steward to a successful project is realizing that writing code for yourself is a Bad Idea™. If thousands of people are using your code, then write your code for maximum clarity, not your personal preference of how to get clever within the spec."   
 > _Idan_ _Gazit_
+
+
 
 ## Table of Contents
 
- * [Whitespace](#whitespace)
- * [Beautiful Syntax](#spacing)
- * [Type Checking](#type)
- * [Conditional Evaluation](#cond)
- * [Practical Style](#practical)
- * [Naming](#naming)
- * [Misc](#misc)
+ * [Whitespace](#1-whitespace)
+ * [Beautiful Syntax](#2-beautiful-syntax)
+ * [Type Checking](#3-type-checking)
+ * [Conditional Evaluation](#4-conditional-evaluation)
+ * [Practical Style](#5-practical-style)
+ * [Naming](#6-naming)
+ * [Misc](#7-misc)
  * [Native & Host Objects](#native)
  * [Comments](#comments)
  * [One Language Code](#language)
+
+
 
 ## Preface
 
 The following sections outline a _reasonable_ style guide for modern JavaScript development and are not meant to be prescriptive. The most important take-away is the **law of code style consistency**. Whatever you choose as the style for your project should be considered law.
 
 
-<a name="whitespace"></a>
+
 ## 1. Whitespace
 
 - **Never mix spaces and tabs.**
@@ -68,7 +68,7 @@ var num = (a + 10) * 3;
 ```
 
 
-<a name="spacing"></a>
+
 ## 2. Beautiful Syntax
 
 ### A. Parens, Braces, Linebreaks
