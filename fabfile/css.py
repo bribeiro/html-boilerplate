@@ -9,7 +9,7 @@ from fabric.colors import yellow
 
 
 # paths
-base_path           = "resources/css"
+base_path           = "static/css"
 src_path   = base_path + "/src"
 css_path    = base_path + "/"
 

@@ -10,7 +10,7 @@ This boilerplate is adapted from the css of [Twitter bootstrap](http://twitter.g
 
 ## How to start:
 1. Edit your `index.html` file of course
-1. By default your javascript starts at `/static/js/app/main.js`
+1. By default your javascript starts at `/static/js/main.js`
 1. JS configuration settings are at `/static/js/config.js`
 1. Your JS build description file is at `/static/js/app.build.js`
 1. run `fab css.compile` or `fab css.watch` to create your .css file
@@ -35,7 +35,7 @@ This boilerplate is adapted from the css of [Twitter bootstrap](http://twitter.g
 
 
 ### Option 1 ###
-    sass -l --watch resources/css/src:resources/css/
+    sass -l --watch static/css/src:static/css/
 
 ### Option 2 ###
 I'm normally in a python project, and am using fabric.  So I wrote up fabric scripts to watch and compress.  
