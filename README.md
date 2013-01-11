@@ -2,7 +2,7 @@
 
 This boilerplate is adapted from the css of [Twitter bootstrap](http://twitter.github.com/bootstrap) and some of the patterns found in [Html5 Boilerplate](http://html5boilerplate.com). It packages in common build functionality using fabric as well as essential libraries setup for require.js.
 
-- Requires: [sass](http://sass-lang.com), [fabric](http://docs.fabfile.org/en/1.5/), git
+- Requires: [sass](http://sass-lang.com), [fabric](http://docs.fabfile.org/en/1.5/), git, [compass](http://compass-style.org/)
 - Comes ready with: [Require.js](http://requirejs.org), [selectivizr](http://selectivizr.com/)
 - Includes these packaged Require.js plugins: [domReady](https://github.com/requirejs/domReady), [text](https://github.com/requirejs/text)
 - Also packaged and available for use with Require.js:, [jQuery](http://jquery.com), [modernizr](http://modernizr.com), [Underscore](http://underscorejs.org), [Backbone](http://backbonejs.org)
@@ -20,14 +20,14 @@ This boilerplate is adapted from the css of [Twitter bootstrap](http://twitter.g
 - deploy to production: ```fab deploy.production``` _(requires setup)_
 
 
-# CSS w/ SASS
+# CSS w/ SASS + COMPASS
 
 1. all new sass files should go into `/static/css/src/` and you should always use SASS
 1. try and follow the twitter bootstrap naming conventions that are setup
 1. add important reusable items/mixins for future projects
 
 ## Install SASS ##
-    gem install sass
+    sudo gem install sass compass
 
 
 ## Compile/ Watch ##
@@ -35,10 +35,10 @@ This boilerplate is adapted from the css of [Twitter bootstrap](http://twitter.g
 
 
 ### Option 1 ###
-    sass -l --watch static/css/src:static/css/
+    compass watch static/css
 
 ### Option 2 ###
-I'm normally in a python project, and am using fabric.  So I wrote up fabric scripts to watch and compress.  
+We are normally in a python project, and ar using fabric.  So we wrote up fabric scripts to watch and compress.  
 
 
     fab css.watch  
