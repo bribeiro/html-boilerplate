@@ -3,3 +3,4 @@
 *.css
 *.pyc
 *.css
+static/img/sprites/icons-*.png
