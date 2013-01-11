@@ -1,3 +1,4 @@
+@import "compass";
 
 // Core variables and mixins
 @import "variables"; // Modify this for custom colors, font-sizes, etc
@@ -21,6 +22,11 @@
 
 // Components: common
 //@import "sprites";
+
+//compass sprites 
+@import "sprites/icons/*.png";
+@include all-icons-sprites;
+
 
 
 // Components: Buttons, Alerts, Button Groups, etc
