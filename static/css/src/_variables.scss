@@ -4,7 +4,7 @@
 
 
 // Globals
-$baseUrl: '';
+$baseUrl: env_or_default("STATIC_URL", "/static/");
 
 
 // Colors

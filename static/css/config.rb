@@ -1,11 +1,19 @@
 # Require any additional compass plugins here.
 
 # Set this to the root of your project when deployed:
-http_path = "/"
-css_dir = "./"
-sass_dir = "./src"
-images_dir = "../img"
-javascripts_dir = "../js"
+http_path = ENV['STATIC_URL'] || '/static/'
+css_dir = "css"
+sass_dir = "css/src"
+images_dir = "img"
+javascripts_dir = "js"
+relative_assets = false
+
+module Sass::Script::Functions
+    def env_or_default(env_name, default)
+        Sass::Script::String.new(ENV[env_name.value] || default.value)
+    end
+    declare :env_or_default, :args => [:string, :string]
+end
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed

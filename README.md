@@ -13,6 +13,7 @@ This boilerplate is adapted from the css of [Twitter bootstrap](http://twitter.g
 1. By default your javascript starts at `/static/js/main.js`
 1. JS configuration settings are at `/static/js/config.js`
 1. Your JS build description file is at `/static/js/app.build.js`
+1. Compass configuration is at /static/css/config.rb,  base url can be set there or with an environment variable
 1. run `fab css.compile` or `fab css.watch` to create your .css file
 
 ## How to deploy:
