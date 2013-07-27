@@ -10,7 +10,6 @@ from fabric.colors import yellow
 
 # paths
 base_path           = "static/css"
-src_path   = base_path + "/src"
 css_path    = base_path + "/"
 
 # sass execs
@@ -30,7 +29,6 @@ def watch():
     """
     print(yellow("\n[CSS] Watching CSS\n", bold=True))
     local(exec_sass_watch.format(css_path))
-    #print(exec_sass_watch.format(css_path))
 
 
 @task
