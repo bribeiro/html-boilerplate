@@ -65,3 +65,12 @@ def _deploy_s3():
             k.set_acl('public-read')
             print('uploaded {0}'.format(destination))
 
+@task
+def test():
+    execute('local.css_compile')
+    execute('local.clone_project')
+    execute('local.js_compile')
+    local('open http://localhost:8080')
+    with lcd('./bin'):
+        execute('local.runserver')
+    
