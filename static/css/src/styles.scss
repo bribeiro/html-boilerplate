@@ -3,10 +3,10 @@
 @import "compass";
 
 // Sprites a la Compass
-$icons-spacing: 5px;
-$icons-sprite-dimensions: true;
-@import "sprites/icons/*.png";
-@include all-icons-sprites;
+$ui-spacing: 5px;
+$ui-sprite-dimensions: true;
+@import "sprites/ui/*.png";
+@include all-ui-sprites;
 
 
 // Core variables and mixins
