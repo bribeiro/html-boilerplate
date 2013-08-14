@@ -1,45 +1,27 @@
-
- ///////////////
-// Utilities //
-
+//
+// Utilities
+// --------------------------------------------------
 
 // Floats
-.pull-right {
-  float: right;
-}
-.pull-left {
-  float: left;
-}
+.pull-right { float: right; }
+.pull-left { float: left; }
 
 // Toggling
-.hide {
-  display: none;
-}
-.show {
-  display: block;
-}
+.hide, .hidden { display: none; }
+.show { display: block; }
 
 // Visibility
-.invisible {
-  visibility: hidden;
-}
-
-// For Affix plugin
-.affix {
-  position: fixed;
-}
+.invisible { visibility: hidden; }
+.visible { visibility: visible; }
 
 // Clearing floats
-.clearfix {
-  @include clearfix();
-}
+.clearfix { @include clearfix(); }
 
 // Accessible yet invisible text
-.hide-text {
-  @include hide-text();
-}
+.hide-text { @include hide-text(); }
 
 // Uses box-sizing mixin, so must be defined here
-.input-block-level {
-  @include input-block-level();
-}
+.input-block-level { @include input-block-level(); }
+
+// No pointer events
+.no-pointer-events { pointer-events: none; }

@@ -1,46 +1,44 @@
+
+// Compass
 @import "compass";
 
-// Core variables and mixins
-@import "variables"; // Modify this for custom colors, font-sizes, etc
-@import "fonts";
-@import "mixins";
-
-
-// CSS Reset
-@import "reset";
-
-
-// Grid system and page structure
-@import "scaffolding";
-@import "grid";
-@import "layouts";
-
-
-// Base CSS
-@import "type";
-
-
-// Components: common
-//@import "sprites";
-
-//compass sprites 
+// Sprites a la Compass
+$icons-spacing: 5px;
+$icons-sprite-dimensions: true;
 @import "sprites/icons/*.png";
 @include all-icons-sprites;
 
 
-
-// Components: Buttons, Alerts, Button Groups, etc
-@import "buttons";
-
-
-// Components: Misc
+// Core variables and mixins
+@import "variables"; // Set colors, typography, etc
+@import "mixins"; // Mixins outside of what Compass offers
 
 
-// Page specific imports
-// src/_page-name-of-page.scss
-// @import "page-name-of-page";
+// CSS Reset
+@import "reset"; // normalize all browsers
 
 
-// Utility classes
-@import "utilities"; // Has to be last to override when necessary
+// Page Structure
+@import "scaffolding"; // low-level architecture
+@import "layouts"; // mid-level architecture
+
+
+// Base CSS
+@import "fonts"; // @font-face embeds
+@import "type"; // Base typography
+
+
+// UI Components
+// Filename structure: _c-[component-name].scss
+@import "c-buttons";
+
+
+// Pages
+// Filename structure: _page-[page-name].scss
+@import "page-home";
+
+
+// Utilities
+@import "animations"; // CSS3 Keyframe animations
+@import "utilities"; // Must be last to override
 
