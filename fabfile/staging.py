@@ -100,7 +100,7 @@ def parse_ts_extended(ts):
     return rv
 
 @task
-def _deploy_s3():
+def _deploy_s3(force_all=False):
     conn = boto.connect_s3(AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY)
     bucket = conn.get_bucket(AWS_STORAGE_BUCKET_NAME)
 
@@ -118,7 +118,8 @@ def _deploy_s3():
                     asset.key = pathname
                     upload_file(asset, pathname)
                     print('uploaded {0}'.format(pathname))
-                elif parse_ts_extended(asset.last_modified) < datetime.utcfromtimestamp(os.path.getmtime(pathname)):
+                elif force_all or parse_ts_extended(asset.last_modified) < \
+                     datetime.utcfromtimestamp(os.path.getmtime(pathname)):
                     upload_file(asset, pathname)
                     print('updated {0}'.format(pathname))
                 else:
