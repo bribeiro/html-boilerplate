@@ -33,6 +33,8 @@ staging_branch = 'staging'
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'bucket-name' # Replace this with S3 bucket name
+PUBLIC_READ = True
+
 IGNORED_FILES = (
     '.md',
     '.out',
@@ -86,7 +88,7 @@ def ignored_file(filename):
 
 def upload_file(asset, pathname):
     asset.set_contents_from_filename(pathname)
-    asset.set_acl('public-read')
+    asset.set_acl(PUBLIC_READ and 'public-read' or 'private')
 
 def parse_ts_extended(ts):
     RFC1123 = '%a, %d %b %Y %H:%M:%S %Z'
