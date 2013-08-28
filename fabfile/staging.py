@@ -55,7 +55,7 @@ IGNORED_FILES = (
 
 
 @task
-def deploy():
+def deploy(force_all=False):
     current_branch = local('git rev-parse --abbrev-ref HEAD', capture=True)
     if current_branch != staging_branch:
         print('not on the right branch, you are on %s', current_branch)
@@ -65,7 +65,7 @@ def deploy():
     execute('local.css_compile')
     execute('local.clone_project')
     execute('local.js_compile')
-    execute('staging._deploy_s3')
+    execute('staging._deploy_s3', force_all=force_all)
     execute('local.open')
 
 def walkup_dir(dirname):
