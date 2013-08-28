@@ -127,10 +127,11 @@ def _deploy_s3(force_all=False):
 
 @task
 def create_website():
+    branch = '_'.join([staging_branch, 'static'])
     with settings(warn_only=True):
-        ret = local('git show-ref --verify --quiet refs/heads/static')
+        ret = local('git show-ref --verify --quiet refs/heads/{}'.format(branch))
         if ret.succeeded:
-            abort("Branch 'static' already exist.")
+            abort("Branch '{}' already exist.".format(branch))
 
     dirname  = os.path.join(__file__, '../..')
     app_name = os.path.split(os.path.realpath(dirname))[1]
@@ -148,7 +149,7 @@ def create_website():
         'AWS_BUCKET_NAME': AWS_STORAGE_BUCKET_NAME,
     }
 
-    local('git checkout --orphan static')
+    local('git checkout --orphan {}'.format(branch))
     local('git rm -rf .')
     local('echo "-e git+https://github.com/rafacv/s3firewall.git#egg=s3firewall\ngunicorn" > requirements.txt')
     local('echo "web: gunicorn -w3 s3firewall:app" > Procfile')
@@ -156,7 +157,7 @@ def create_website():
 
     while app_name:
         with settings(warn_only=True):
-            ret = local('heroku apps:create {} -r static'.format(app_name))
+            ret = local('heroku apps:create {} -r {}'.format(app_name, branch))
             if ret.failed:
                 app_name = prompt('Enter Heroku app name (blank to exit):')
                 if not app_name:
@@ -164,8 +165,8 @@ def create_website():
             else:
                 app_name = False
 
-    local('git push origin static')
-    local('git push static static:master')
+    local('git push origin {}'.format(branch))
+    local('git push {0} {0}:master'.format(branch))
     local('heroku config:set {}'.format(
         " ".join(["{}='{}'".format(key, value) for key, value in config_vars.iteritems() if value]),
     ))
