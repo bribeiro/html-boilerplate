@@ -127,17 +127,21 @@ def _deploy_s3(force_all=False):
 
 @task
 def create_website():
-    branch = '_'.join([staging_branch, 'static'])
+    branch = 'static'
+    create_branch = True
     with settings(warn_only=True):
         ret = local('git show-ref --verify --quiet refs/heads/{}'.format(branch))
         if ret.succeeded:
-            abort("Branch '{}' already exists.".format(branch))
+            create_branch = False
 
-    dirname  = os.path.join(__file__, '../..')
-    app_name = os.path.split(os.path.realpath(dirname))[1]
-    app_name = prompt('Enter Heroku app name:', default=app_name)
-    username = prompt('Enter Basic auth username:')
-    password = prompt('Enter Basic auth password:')
+    dirname      = os.path.join(__file__, '../..')
+    app_name     = os.path.split(os.path.realpath(dirname))[1]
+
+    bucket_name  = prompt('Enter S3 bucket name:', default=AWS_STORAGE_BUCKET_NAME)
+    app_name     = prompt('Enter Heroku app name:', default=app_name)
+    remote_name  = prompt('Enter Heroku remote name:', default=staging_branch)
+    username     = prompt('Enter Basic auth username:')
+    password     = prompt('Enter Basic auth password:')
     allowed_addr = prompt('Enter allowed IP addresses:')
 
     config_vars = {
@@ -146,29 +150,32 @@ def create_website():
         'ALLOWED_ADDR': allowed_addr,
         'AWS_ACCESS_KEY_ID': AWS_ACCESS_KEY_ID,
         'AWS_SECRET_ACCESS_KEY': AWS_SECRET_ACCESS_KEY,
-        'AWS_BUCKET_NAME': AWS_STORAGE_BUCKET_NAME,
+        'AWS_BUCKET_NAME': bucket_name,
     }
 
-    local('git checkout --orphan {}'.format(branch))
-    local('git rm -rf .')
-    local('echo "-e git+https://github.com/rafacv/s3firewall.git#egg=s3firewall\ngunicorn" > requirements.txt')
-    local('echo "web: gunicorn -w3 s3firewall:app" > Procfile')
-    local('git add Procfile requirements.txt && git commit -m "Deploy static website"')
+    if create_branch:
+        local('git checkout --orphan {}'.format(branch))
+        local('git rm -rf .')
+        local('echo "-e git+https://github.com/rafacv/s3firewall.git#egg=s3firewall\ngunicorn" > requirements.txt')
+        local('echo "web: gunicorn -w3 s3firewall:app" > Procfile')
+        local('git add Procfile requirements.txt && git commit -m "Deploy static website"')
+        local('git push origin {}'.format(branch))
 
-    while app_name:
+    not_created = True
+    while not_created:
         with settings(warn_only=True):
-            ret = local('heroku apps:create {} -r {}'.format(app_name, branch))
+            ret = local('heroku apps:create {} -r {}'.format(app_name, remote_name))
             if ret.failed:
                 app_name = prompt('Enter Heroku app name (blank to exit):')
                 if not app_name:
                     abort('Heroku app not created.')
             else:
-                app_name = False
+                not_created = False
 
-    local('git push origin {}'.format(branch))
-    local('git push {0} {0}:master'.format(branch))
-    local('heroku config:set {}'.format(
+    local('git push {} {}:master'.format(remote_name, branch))
+    local('heroku config:set {} --app {}'.format(
         " ".join(["{}='{}'".format(key, value) for key, value in config_vars.iteritems() if value]),
+        app_name,
     ))
 
 @task
