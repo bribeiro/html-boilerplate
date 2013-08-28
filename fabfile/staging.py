@@ -32,7 +32,7 @@ from fabric.colors import red
 staging_branch = 'staging'
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = 'BUCKET_NAME' # Replace this with S3 bucket name
+AWS_STORAGE_BUCKET_NAME = '__BUCKET_NAME__' # Replace this with S3 bucket name
 PUBLIC_READ = True
 
 IGNORED_FILES = (
