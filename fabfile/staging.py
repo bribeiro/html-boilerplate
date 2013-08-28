@@ -131,7 +131,7 @@ def create_website():
     with settings(warn_only=True):
         ret = local('git show-ref --verify --quiet refs/heads/{}'.format(branch))
         if ret.succeeded:
-            abort("Branch '{}' already exist.".format(branch))
+            abort("Branch '{}' already exists.".format(branch))
 
     dirname  = os.path.join(__file__, '../..')
     app_name = os.path.split(os.path.realpath(dirname))[1]
