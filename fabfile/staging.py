@@ -1,5 +1,6 @@
 import os
 import boto
+import hashlib
 from datetime import datetime
 from boto.utils import parse_ts
 from boto.s3.key import Key
@@ -48,6 +49,10 @@ IGNORED_FILES = (
     '.DS_Store',
 )
 
+REWRITE_FILES_RULES = {
+    './bin/static/js': './static/js',
+}
+
 
 # ----------------------------------------------------------------------------#
 # PRODUCTION DEPLOMENT -------------------------------------------------------#
@@ -60,8 +65,6 @@ def deploy(force_all=False):
     if current_branch != staging_branch:
         print('not on the right branch, you are on %s', current_branch)
         return
-    with settings(warn_only=True):
-        local('rm -rf ./bin')
     execute('local.css_compile')
     execute('local.clone_project')
     execute('local.js_compile')
@@ -74,6 +77,16 @@ def walkup_dir(dirname):
      while path != cwd:
          path, dirname = os.path.split(path)
          yield dirname
+
+def md5(filename, block_size=2**20):
+    md5 = hashlib.md5()
+    f = open(filename)
+    while True:
+        data = f.read(block_size)
+        if not data:
+            break
+        md5.update(data)
+    return md5.hexdigest()
 
 def ignored_file(filename):
     if os.path.isfile(filename) and \
@@ -105,10 +118,19 @@ def _deploy_s3(force_all=False):
     bucket = conn.get_bucket(AWS_STORAGE_BUCKET_NAME)
 
     for dirname, dirnames, filenames in os.walk('.'):
-        if ignored_file(dirname):
+        if ignored_file(dirname) or any(dirname.startswith(path) for path
+                                        in REWRITE_FILES_RULES.itervalues()):
             continue
+        else:
+            for origin, destination in REWRITE_FILES_RULES.iteritems():
+                if dirname.startswith(origin):
+                    destdir = dirname.replace(origin, destination)
+                    break
+            else:
+                destdir = dirname
 
         for filename in filenames:
+            actual_file = os.path.join(dirname, filename)
             pathname = os.path.join(dirname, filename)
             if not ignored_file(pathname):
                 pathname = pathname[2:]
@@ -116,11 +138,10 @@ def _deploy_s3(force_all=False):
                 if not asset:
                     asset = Key(bucket)
                     asset.key = pathname
-                    upload_file(asset, pathname)
+                    upload_file(asset, actual_file)
                     print('uploaded {0}'.format(pathname))
-                elif force_all or parse_ts_extended(asset.last_modified) < \
-                     datetime.utcfromtimestamp(os.path.getmtime(pathname)):
-                    upload_file(asset, pathname)
+                elif force_all or asset.etag[1:-1] != md5(actual_file):
+                    upload_file(asset, actual_file)
                     print('updated {0}'.format(pathname))
                 else:
                     print('not modified {0}'.format(pathname))
