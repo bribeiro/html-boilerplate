@@ -66,7 +66,6 @@ def deploy(force_all=False):
         print('not on the right branch, you are on %s', current_branch)
         return
     execute('local.css_compile')
-    execute('local.clone_project')
     execute('local.js_compile')
     execute('staging._deploy_s3', force_all=force_all)
     execute('local.open')
@@ -131,7 +130,7 @@ def _deploy_s3(force_all=False):
 
         for filename in filenames:
             actual_file = os.path.join(dirname, filename)
-            pathname = os.path.join(dirname, filename)
+            pathname = os.path.join(destdir, filename)
             if not ignored_file(pathname):
                 pathname = pathname[2:]
                 asset = bucket.get_key(pathname)
