@@ -1,4 +1,4 @@
-# Minimal Boilerplate for HTML / CSS / JS 
+# Minimal Boilerplate for HTML / CSS / JS
 
 This boilerplate is adapted from the css of [Twitter bootstrap](http://twitter.github.com/bootstrap) and some of the patterns found in [Html5 Boilerplate](http://html5boilerplate.com). It packages in common build functionality using fabric as well as essential libraries setup for require.js.
 
@@ -20,6 +20,11 @@ This boilerplate is adapted from the css of [Twitter bootstrap](http://twitter.g
 - deploy to staging: ```fab deploy.staging``` _(requires setup)_
 - deploy to production: ```fab deploy.production``` _(requires setup)_
 
+## Editor Configuration
+To unify coding styles (spacing, line-endings, etc) between different editors and IDEs, HAUS uses [EditorConfig](http://editorconfig.org/)
+
+1. If you haven't already - [install a plugin for your editor](http://editorconfig.org/#download)
+1. Thats it! The plugin will look for a .editorconfig file in your project directory and automatically format the file correctly on save.
 
 # CSS w/ SASS + COMPASS
 
@@ -39,11 +44,11 @@ This boilerplate is adapted from the css of [Twitter bootstrap](http://twitter.g
     compass watch static/css
 
 ### Option 2 ###
-We are normally in a python project, and ar using fabric.  So we wrote up fabric scripts to watch and compress.  
+We are normally in a python project, and ar using fabric.  So we wrote up fabric scripts to watch and compress.
 
 
-    fab css.watch  
-or compressed:  
+    fab css.watch
+or compressed:
 
     fab css.compile
 
@@ -90,10 +95,10 @@ The HAUS JavaScript Styleguide is based upon Boucoup's [Idiomatic.js](https://gi
 
 ### All code in any code-base should look like a single person typed it, no matter how many people contributed.
 
-> "Arguments over style are pointless. There should be a style guide, and you should follow it."   
+> "Arguments over style are pointless. There should be a style guide, and you should follow it."
 > _Rebecca_ _Murphey_
 
-> "Part of being a good steward to a successful project is realizing that writing code for yourself is a Bad Idea™. If thousands of people are using your code, then write your code for maximum clarity, not your personal preference of how to get clever within the spec."   
+> "Part of being a good steward to a successful project is realizing that writing code for yourself is a Bad Idea™. If thousands of people are using your code, then write your code for maximum clarity, not your personal preference of how to get clever within the spec."
 > _Idan_ _Gazit_
 
 
