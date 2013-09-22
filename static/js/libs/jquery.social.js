@@ -40,7 +40,6 @@
             })
         }
         function onElementClick(){
-            console.log(this)
             window.open(
                 self.options.url, 
                 self.options.windowName, 
