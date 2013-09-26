@@ -7,7 +7,7 @@
 /*global requirejs*/
 requirejs.config({
 
-    baseUrl:"./static/js/app",
+    baseUrl:"./js",
 
     // 3rd party script alias names
     paths: {
