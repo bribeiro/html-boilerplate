@@ -1,8 +1,12 @@
 /*
     Example Controller, pulling in a Header and a Welcome view
 */
-define(['App', 'backbone', 'marionette', 'views/WelcomeView', 'views/HeaderView'],
-    function (App, Backbone, Marionette, WelcomeView, HeaderView) {
+define(function(require, exports, module) {
+    var App = require('app'),
+        Backbone = require('backbone'),
+        Marionette = require('marionette'),
+        WelcomeView = require('views/WelcomeView'),
+        HeaderView = require('views/HeaderView');
 
         return Backbone.Marionette.Controller.extend({
             initialize:function (options) {

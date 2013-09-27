@@ -1,8 +1,9 @@
 /*
     Example Marionette Collection
 */
-define(["jquery","backbone","models/model"],
-function($, Backbone, Model) {
+define(function(require, exports, module) {
+    var Backbone = require('backbone'),
+        Model = require('models/model');
 
     // Creates a new Backbone Collection class object
     var Collection = Backbone.Collection.extend({
@@ -12,3 +13,5 @@ function($, Backbone, Model) {
 
     return Collection;
 });
+
+

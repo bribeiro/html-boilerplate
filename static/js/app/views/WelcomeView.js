@@ -1,14 +1,12 @@
-define( [ 'marionette', 'models/Model', 'hbs!templates/welcome.html'],
-function( App, Marionette, Model, template) {
+define(function(require, exports, module) {
+    var Marionette = require('marionette'),
+        template = require('hbs!templates/welcome.html');
+
     //ItemView provides some default rendering logic
     return Marionette.ItemView.extend({
 
         // hbs plugin precompiles our template
         template: template,
-
-        model: new Model({
-            // foo: App.mobile
-        }),
 
         // View Event Handlers
         events: {
