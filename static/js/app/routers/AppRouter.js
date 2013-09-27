@@ -3,7 +3,7 @@
 */
 define(function(require, exports, module) {
     var Marionette = require('marionette'),
-        Controller = require('controllers/Controller');
+        Controller = require('app/controllers/Controller');
 
    return Marionette.AppRouter.extend({
 

@@ -5,7 +5,7 @@ define(function(require, exports, module) {
     var Backbone = require('backbone'),
         Marionette = require('marionette');
 
-    var App = new Backbone.Marionette.Application();
+    var app = new Backbone.Marionette.Application();
 
     function isMobile() {
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -14,16 +14,20 @@ define(function(require, exports, module) {
 
     //Organize Application into regions corresponding to DOM elements
     //Regions can contain views, Layouts, or subregions nested as necessary
-    App.addRegions({
+    app.addRegions({
         headerRegion:"header",
         mainRegion:"#main"
     });
 
-    App.addInitializer(function () {
-        Backbone.history.start();
+    app.addInitializer(function () {
+
+        // Init history goodness
+        Backbone.history.start({
+            pushState: true
+        });
     });
 
-    App.mobile = isMobile();
+    app.mobile = isMobile();
 
-    return App;
+    return app;
 });

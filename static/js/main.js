@@ -2,11 +2,12 @@
 	this is the javascript entry point
 */
 require(['./config'], function(){
-	require(['app/app'], function( app ){
-		//if the module was a function execute it,
-		//otherwise be do nothing
-		if( typeof app === 'function' ){
-			app();
-		}
+	require(['app/app', 'app/routers/AppRouter', 'app/controllers/Controller'], function( app, AppRouter, Controller ){
+        // Attach the router and controller
+        console.log(app);
+        app.appRouter = new AppRouter({
+            controller: new Controller()
+        });
+		app.start();
 	});
 });

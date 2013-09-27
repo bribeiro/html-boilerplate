@@ -7,23 +7,25 @@
 /*global requirejs*/
 requirejs.config({
 
-    baseUrl:"./js",
+    // Makes referencing libs by their file name easy
+    baseUrl:"./js/libs",
 
     // 3rd party script alias names
     paths: {
-        // Core Libraries
-        'jquery': 'libs/jquery',
-        'underscore': 'libs/lodash.underscore',
-        'backbone': 'libs/backbone',
-        'marionette': 'libs/backbone.marionette',
-        "handlebars": "libs/handlebars",
-        'hbs': 'libs/hbs.js',
-        'i18nprecompile': 'libs/i18nprecompile.js',
+
+        // App code path
+        'app': '../app',
+
+        // Core libraries - aliases good
+        'underscore': 'lodash.underscore',
+        'marionette': 'backbone.marionette',
 
         // Plugins
-        'text': 'libs/plugins/text',
-        'domReady': 'libs/plugins/domReady',
-        'modernizr': 'libs/modernizr'
+        'text': 'plugins/text',
+        'domReady': 'plugins/domReady',
+
+        // Templates Folder
+        'templates': '../../templates'
     },
 
     // Sets the configuration for third party scripts that are not AMD compatible
@@ -48,7 +50,7 @@ requirejs.config({
     hbs : {
         templateExtension: "html",
         disableHelpers: true,
-        i18nDirectory: "templates/i18n/"
+        i18nDirectory: "/templates/i18n/"
     }
 
 });

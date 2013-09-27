@@ -3,7 +3,7 @@
 */
 define(function(require, exports, module) {
     var Backbone = require('backbone'),
-        Model = require('models/model');
+        Model = require('app/models/model');
 
     // Creates a new Backbone Collection class object
     var Collection = Backbone.Collection.extend({
