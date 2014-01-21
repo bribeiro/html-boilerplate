@@ -2,4 +2,52 @@
 // Layouts
 // ---------------------------
 
+.app {
+    @extend %transition-all;
+    position: relative;
+    max-width: 1069px; // should be 1060 but YT is whack right now
+    min-width: 640px;
+    margin: 0 auto;
+    @include clearfix;
+    &:before,
+    &:after {
+        content: "";
+        @include transition(inherit);
+    }
+    &:before {
+        @extend %flexible-16-9;
+        @extend %spinner;
+        position: absolute;
+        width: 100%;
+    }
+    &:after {
+        @extend %spread;
+        position: fixed;
+        background-color: rgba($black, 0.6);
+        z-index: -1;
+    }
+    .ready & {
+        &:before,
+        &:after {
+            opacity: 0;
+        }
+    }
+}
 
+.main {
+    @extend %spread;
+    position: relative;
+    height: 0;
+    padding-bottom: 58.5%;
+}
+
+.pointerevents .flash {
+    @extend %spread;
+    @extend %translate3d-reset;
+    position: fixed;
+    background-color: $white;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 99;
+    @include animation(flash, 2.4s, ceaser($easeOutExpo), 1);
+}

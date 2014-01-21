@@ -1,0 +1,20 @@
+//
+// jparallax
+// https://github.com/stephband/jparallax
+// ---------------------------
+
+.parallax-viewport {
+    position: relative;
+    height: 684px;
+    overflow: hidden;
+}
+.parallax-layer {
+    position: absolute;
+    pointer-events: none;
+    img {
+        @extend %translate3d-reset;
+        width: 100%;
+        height: auto;
+    }
+}
+

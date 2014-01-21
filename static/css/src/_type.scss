@@ -15,7 +15,17 @@ a {
 
 // Body text
 // -------------------------
-p { margin: 0 0 $baseLineHeight / 2; }
+p {
+    @extend %text-shadow;
+    margin: 0 0 $baseLineHeight / 2;
+    font-size: 1.6em;
+    line-height: 1.8em;
+}
+
+ul, ol {
+    margin: 0;
+    list-style: none;
+}
 
 
 // Emphasis & Misc
@@ -23,49 +33,23 @@ p { margin: 0 0 $baseLineHeight / 2; }
 small { font-size: 85%; }
 strong { font-weight: bold; }
 em { font-style: italic; }
-cite { font-style: normal; }
 
 
 // Headings
 // -------------------------
 h1, h2, h3, h4, h5, h6 {
+    @extend %text-shadow;
     margin: ($baseLineHeight / 2) 0;
     font-family: $headingsFontFamily;
     font-weight: $headingsFontWeight;
     line-height: 1;
     color: $headingsColor;
+    text-transform: uppercase;
     text-rendering: optimizelegibility; // Fix the character spacing for headings
-    small {
-        font-weight: normal;
-        line-height: 1;
-        color: $headingsColor;
-    }
 }
-h1 { font-size: 36px; line-height: 40px; }
-h2 { font-size: 30px; line-height: 40px; }
-h3 { font-size: 24px; line-height: 40px; }
-h4 { font-size: 18px; line-height: 20px; }
-h5 { font-size: 14px; line-height: 20px; }
-h6 { font-size: 12px; line-height: 20px; }
-
-h1 small { font-size: 24px; }
-h2 small { font-size: 18px; }
-h3 small { font-size: 14px; }
-h4 small { font-size: 14px; }
+h1 { font-size: 5.0em; line-height: 1em; }
+h2 { font-size: 4.1em; line-height: 1.15em; }
+h3 { font-size: 1.9em; line-height: 1.4em; }
+h4 { font-size: 1.3em; line-height: 1em; }
 
 
-// Horizontal rules
-hr {
-    margin: $baseLineHeight 0;
-    border: 0;
-    border-top: 1px solid $hrBorder;
-    border-bottom: 1px solid $white;
-}
-
-// Addresses
-address {
-    display: block;
-    margin-bottom: $baseLineHeight;
-    font-style: normal;
-    line-height: $baseLineHeight;
-}

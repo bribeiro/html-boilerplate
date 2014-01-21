@@ -8,28 +8,40 @@ $baseUrl: env_or_default("STATIC_URL", "/static/");
 
 // Colors
 // -------------------------
-$white:                     #fff !default;
-$black:                     #000 !default;
+$white:                     #ffffff !default;
+$lightGray:                 #cccccc !default;
+$black:                     #151515 !default;
+$lightGray:                 #cccccc !default;
+$gray:                      #6a6a6a !default;
+$darkGray:                  #363535 !default;
+$darkGreen:                 #1f3333 !default;
+$green:                     #3c4e4e !default;
+$lightGreen:                #37a7a2 !default;
+$red:                       #b44e4e !default;
 
 // Scaffolding
 // -------------------------
-$bodyBackground:            $white !default;
-$textColor:                 $black !default;
-$hrBorder:                  $black !default;
+$bodyBackground:            $black !default;
+$textColor:                 $lightGray !default;
+$hrBorder:                  $lightGray !default;
 
 // Links
 // -------------------------
-$linkColor:                 #08c !default;
-$linkColorHover:            darken($linkColor, 15%) !default;
+$linkColor:                 $gray !default;
+$linkColorHover:            lighten($linkColor, 15%) !default;
 
 // Typography
 // -------------------------
-$baseFontSize:              12px !default;
-$baseFontFamily:            "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$baseLineHeight:            1.2 !default;
 
-$headingsFontFamily:        inherit !default; // empty to use BS default, $baseFontFamily
-$headingsFontWeight:        bold !default;    // instead of browser default, bold
+$Fjord:                     'Fjord One', serif;
+$Aldrich:                   'Aldrich', sans-serif;
+
+$baseFontSize:              10px !default;
+$baseFontFamily:            $Fjord !default;
+$baseLineHeight:            20px !default;
+
+$headingsFontFamily:        $Aldrich !default; // empty to use BS default, $baseFontFamily
+$headingsFontWeight:        400 !default;    // instead of browser default, bold
 $headingsColor:             inherit !default; // empty to use BS default, $textColor
 
 // Buttons

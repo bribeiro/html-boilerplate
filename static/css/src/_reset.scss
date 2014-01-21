@@ -81,11 +81,6 @@ img {
     -ms-interpolation-mode: bicubic;
 }
 
-// Prevent max-width from affecting Google Maps
-#map_canvas img {
-    max-width: none;
-}
-
 // Font size in all browsers, margin changes, misc consistency
 button,
 input,

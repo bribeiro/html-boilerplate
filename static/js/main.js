@@ -1,12 +1,6 @@
-/*
-	this is the javascript entry point
-*/
-require(['./config'], function(){
-	require(['app/main'], function( app ){
-		//if the module was a function execute it,
-		//otherwise be do nothing
-		if( typeof app === 'function' ){
-			app();
-		}
-	});
+require(['./config'], function() {
+    require(['modernizr', 'app/app', 'app/routers/AppRouter'], function(Modernizr, app, AppRouter) {
+        app.appRouter = new AppRouter();
+        app.start();
+    });
 });

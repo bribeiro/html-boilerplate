@@ -1,12 +1,11 @@
 # Require any additional compass plugins here.
 
 # Set this to the root of your project when deployed:
-http_path = ENV['STATIC_URL'] || '/static/'
+http_path = ENV['STATIC_URL'] || '/'
 css_dir = "css"
 sass_dir = "css/src"
 images_dir = "img"
 javascripts_dir = "js"
-relative_assets = false
 
 module Sass::Script::Functions
     def env_or_default(env_name, default)
@@ -19,7 +18,7 @@ end
 # output_style = :expanded or :nested or :compact or :compressed
 
 # To enable relative paths to assets via compass helper functions. Uncomment:
-# relative_assets = true
+relative_assets = true
 
 # To disable debugging comments that display the original location of your selectors. Uncomment:
 # line_comments = false

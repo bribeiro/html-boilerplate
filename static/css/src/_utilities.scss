@@ -11,8 +11,8 @@
 .show { display: block; }
 
 // Visibility
-.invisible { visibility: hidden; }
-.visible { visibility: visible; }
+.invisible { opacity: 0; }
+.visible { opacity: 1; }
 
 // Clearing floats
 .clearfix { @include clearfix(); }

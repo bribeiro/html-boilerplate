@@ -1,9 +1,6 @@
 from fabric.api import env
 
-import local
-from local import runall
-from local import killall
-import staging
+import staging, dev, local, production
 
 
 env.roldefs = {
