@@ -3,19 +3,7 @@
 // ---------------------------
 
 .app {
-    @extend %transition-all;
-    position: relative;
-    max-width: 1069px; // should be 1060 but YT is whack right now
-    min-width: 640px;
-    margin: 0 auto;
-    @include clearfix;
-    
-    .ready & {
-        &:before,
-        &:after {
-            opacity: 0;
-        }
-    }
+   
 }
 
 .main {

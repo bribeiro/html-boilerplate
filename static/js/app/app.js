@@ -3,17 +3,15 @@ define(function(require, exports, module) {
 
     var app = new Backbone.Marionette.Application();
 
-    app.addRegions({
-        loader: '#loader'
-    });
+    // app.addRegions({
+    //     loader: '#loader'
+    // });
 
     app.addInitializer(function() {
         Backbone.history.start({
             pushState: false
         });
     });
-
-    app.audio = {};
 
     return app;
 });
