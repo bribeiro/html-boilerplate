@@ -1,4 +1,4 @@
-# HAUS BOILERPLATE
+# HAUS HTML Boilerplate
 
 ## Description
 
