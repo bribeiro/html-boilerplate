@@ -54,22 +54,12 @@
     margin: 2.5%;
     padding-bottom: 53.4375%;
     outline: 1px solid rgba($black, 0.2);
-    background: $black url(../img/global/poster.jpg) no-repeat center center;
+    background: $black;
     @include background-size(auto 100%);
 }
 
 %text-shadow {
     text-shadow: 2px 4px 5px rgba(0,0,0,0.4);
-}
-
-%block-type {
-    font-family: $Aldrich;
-    letter-spacing: 0.0625em; /* 1/16 */
-    text-transform: uppercase;
-}
-
-%spinner {
-    background: url(../img/global/spinner.gif) no-repeat center center;
 }
 
 %no-transition-delay {

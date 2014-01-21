@@ -9,23 +9,7 @@
     min-width: 640px;
     margin: 0 auto;
     @include clearfix;
-    &:before,
-    &:after {
-        content: "";
-        @include transition(inherit);
-    }
-    &:before {
-        @extend %flexible-16-9;
-        @extend %spinner;
-        position: absolute;
-        width: 100%;
-    }
-    &:after {
-        @extend %spread;
-        position: fixed;
-        background-color: rgba($black, 0.6);
-        z-index: -1;
-    }
+    
     .ready & {
         &:before,
         &:after {

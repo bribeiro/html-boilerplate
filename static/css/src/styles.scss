@@ -7,10 +7,10 @@
 @import "ceaser-easing";
 
 // Sprites a la Compass
-$ui-spacing: 5px;
-$ui-sprite-dimensions: true;
-@import "sprites/ui/*.png";
-@include all-ui-sprites;
+//$ui-spacing: 5px;
+//$ui-sprite-dimensions: true;
+//@import "sprites/ui/*.png";
+//@include all-ui-sprites;
 
 // Core variables and mixins
 @import "variables"; // Set colors, typography, etc
@@ -33,25 +33,14 @@ $ui-sprite-dimensions: true;
 // UI Components
 // Filename structure: _c-[component-name].scss
 @import "c-buttons";
-@import "c-loader";
-@import "c-sounds";
-@import "c-footer";
-@import "c-end-share";
-@import "c-video-player";
-@import "c-experience-selection";
-@import "c-region-interstitial";
-@import "c-region-parallax";
-@import "c-region-cards";
-@import "c-region-content";
-@import "c-region-ad-space";
-@import "c-region-gallery";
+
 
 // Redirected Views
-@import "touch";
+
 @import "upgrade";
 
 // Plugins
-@import "jquery.parallax";
+
 
 // Utilities
 @import "animations"; // CSS3 Keyframe animations

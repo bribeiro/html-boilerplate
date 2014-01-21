@@ -8,9 +8,7 @@ define(function(require, exports, module) {
     return Backbone.Marionette.Controller.extend({
 
         initialize: function(options) {
-            this.loadmanager = new Loadmanager({
-                timecodes: timecodes
-            });
+            
         },
 
         index: function() {

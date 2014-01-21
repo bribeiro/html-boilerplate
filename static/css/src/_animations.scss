@@ -49,33 +49,3 @@
         opacity: 1;
     }
 }
-
-@include keyframes(orb) {
-   from { background-position: 0px 0px; }
-     to { background-position: -2250px 0px; }
-}
-
-@include keyframes(smoke) {
-   from { background-position: 0px 0px; }
-     to { background-position: -38400px 0px; }
-}
-
-@include keyframes(smokeText) {
-   from { background-position: 0px 0px; }
-     to { background-position: -24000px 0px; }
-}
-
-@include keyframes(scrubAnime) {
-   from { background-position: 0px 0px; }
-     to { background-position: -3181px 0px; }
-}
-
-@include keyframes(exploreAnime) {
-   from { background-position: 0px 0px; }
-     to { background-position: -3720px 0px; }
-}
-
-@include keyframes(orbsAnime) {
-   from { background-position: 0px 0px; }
-     to { background-position: -3150px 0px; }
-}
