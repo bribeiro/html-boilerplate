@@ -1,7 +1,6 @@
-# 47 Ronin
+# HAUS BOILERPLATE
 
 ## Description
-
 
 
 ## Development Notes
@@ -19,30 +18,12 @@ This project uses NodeJS, Grunt and [Compass Ceaser Easing](https://github.com/j
     npm install
     gem install ceaser-easing
     
-Youtube test page credentials:
-
-    haustester6616@gmail
-    #1tester
 
 #### Running locally
 This will start a local server at [0.0.0.0:8000](http://0.0.0.0:8000) as well as run Compass compilation and JSHinting
 
     grunt dev
 
-#### Handlebars Templating & i18n
-This project uses Handlebars with a require.js plugin to make JS localization very easy.
-
-Usage Example: 
-
-    define(function(require, exports, module) {
-        var Marionette = require('marionette'),
-            template = require('hbs!templates/header');
-
-        return Marionette.ItemView.extend({
-            template: template
-        });
-
-    });
 
 ### Deployment notes
 For depoloying and building we use fab - [learn about it and install it here](http://docs.fabfile.org/en/1.8/). Compiled files **are not** in the git repository.
@@ -55,5 +36,3 @@ staging: ```fab staging.deploy```
 Deployments automatically compile CSS and JS - but if you need to do a build without deploying run:
 
     fab local.compile
-
-
