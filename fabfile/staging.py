@@ -28,13 +28,13 @@ from . import loc
 # ----------------------------------------------------------------------------#
 
 BRANCH_NAME = 'staging'
-AWS_ACCESS_KEY_ID = 'AKIAJZCMNR3JMNZIL36A'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = '47ronin-staging'
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
+AWS_STORAGE_BUCKET_NAME = ''
 PUBLIC_READ = True
 
-SLACK_URL = 'https://haus.slack.com/services/hooks/incoming-webhook?token=qK6pzDK6IblyHdZLzZBCVhPO'
-SLACK_CHANNEL ='47ronin-staging'
+SLACK_URL = ''
+SLACK_CHANNEL =''
 
 # ----------------------------------------------------------------------------#
 # PRODUCTION DEPLOMENT -------------------------------------------------------#
