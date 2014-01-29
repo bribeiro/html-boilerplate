@@ -138,7 +138,7 @@ def md5(filename, block_size=2**20):
     return md5.hexdigest()
 
 
-def upload_file(asset, pathname, public_read, gzip, max_age=60):
+def upload_file(asset, pathname, public_read, gzip, max_age=60*10):
     gzip = str(gzip).lower() != 'false'
     headers = {'Cache-Control': 'max-age={}'.format(max_age)}
     if gzip and pathname.lower().endswith(('.js', '.css')):
