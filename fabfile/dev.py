@@ -5,13 +5,11 @@ from . import loc, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
 
 
 
-# @todo - repeated code; between prod / staging -> cleanup
-
 # ----------------------------------------------------------------------------#
 # VARIABLES ------------------------------------------------------------------#
 # ----------------------------------------------------------------------------#
 
-BRANCH_NAME = 'staging'
+BRANCH_NAME = 'dev'
 AWS_STORAGE_BUCKET_NAME = '__BUCKET_NAME__' # Replace this with S3 bucket name
 PUBLIC_READ = True
 SLACK_URL = None
@@ -37,5 +35,8 @@ def deploy(force_all=False, gzip=False):
                     bucket=AWS_STORAGE_BUCKET_NAME,
                     public_read=PUBLIC_READ,
                     gzip=gzip)
-    loc.notify_slack(SLACK_URL, 'http://s3.amazonaws.com/{}/index.html'.format(AWS_STORAGE_BUCKET_NAME))
+    if SLACK_URL:
+        loc.notify_slack(SLACK_URL, 'http://s3.amazonaws.com/{}/index.html'.format(AWS_STORAGE_BUCKET_NAME))
+
+
 

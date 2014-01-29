@@ -4,14 +4,13 @@ from fabric.api import task
 from . import loc, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
 
 
-
 # @todo - repeated code; between prod / staging -> cleanup
 
 # ----------------------------------------------------------------------------#
 # VARIABLES ------------------------------------------------------------------#
 # ----------------------------------------------------------------------------#
 
-BRANCH_NAME = 'staging'
+BRANCH_NAME = 'master'
 AWS_STORAGE_BUCKET_NAME = '__BUCKET_NAME__' # Replace this with S3 bucket name
 PUBLIC_READ = True
 SLACK_URL = None
