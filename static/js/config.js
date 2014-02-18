@@ -1,24 +1,35 @@
 /*
-	the projects require.js config,
-	used in build process also
-	see: http://requirejs.org/docs/api.html#config
+    Require.js config
+    http://requirejs.org/docs/api.html#config
 */
 
-/*global requirejs*/
 requirejs.config({
-	//tell require.js what global this lib makes
-	shim: {
-		'underscore': { exports: '_' },
-		'backbone': { deps: ['underscore','jquery'], exports: 'Backbone' },
-		'modernizr': { exports: 'Modernizr' }
-	},
-	//re-route libs to top-level
-	paths: {
-		'jquery': 'libs/jquery',
-		'backbone': 'libs/backbone',
-		'underscore': 'libs/underscore',
-		'text': 'libs/text',
-		'domReady': 'libs/domReady',
-		'modernizr': 'libs/modernizr'
-	}
+
+    waitSeconds: 30,
+
+    paths: {
+
+        // Main libs
+        'jquery': 'libs/jquery',
+        'underscore': 'libs/lodash.underscore',
+        'backbone': 'libs/backbone',
+
+        // Main plugins
+        hbs: 'libs/hbs',
+        i18n: 'libs/i18n',
+        i18nprecompile: 'libs/i18nprecompile',
+        json2: 'libs/json2'
+
+    },
+
+    shim: {
+
+    },
+
+    hbs: {
+        templateExtension: "html",
+        disableI18n: true,
+        disableHelpers: false
+    }
+
 });
