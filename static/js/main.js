@@ -1,10 +1,8 @@
-/*
-	this is the javascript entry point
-*/
+
 require(['./config'], function(){
 	require(['app/main'], function( app ){
-		//if the module was a function execute it,
-		//otherwise be do nothing
+		// If the module is a function, execute it...
+		// Otherwise do nothing
 		if( typeof app === 'function' ){
 			app();
 		}
