@@ -140,14 +140,4 @@ module.exports = function(grunt) {
         grunt.task.run('compass');
     });
 
-    // Default task
-    //grunt.registerTask('default', ['compass']);
-
-    // JSHint task
-    //grunt.registerTask('dev', ['default', 'connect', 'watch']);
-
-    // Build task
-    //grunt.registerTask('build', ['default', 'requirejs:mainJS']);
-
-
 };

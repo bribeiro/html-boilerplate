@@ -1,5 +1,5 @@
-define(function( require ){
+define(function(require) {
 
-	var $ = require('jquery');
+    var $ = require('jquery');
 
 });
