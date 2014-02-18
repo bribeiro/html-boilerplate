@@ -9,7 +9,7 @@ $baseUrl: env_or_default("STATIC_URL", "/static/");
 // Colors
 // -------------------------
 $white:                     #fff !default;
-$black:                     #000 !default;
+$black:                     #444 !default;
 
 // Scaffolding
 // -------------------------
@@ -20,20 +20,41 @@ $hrBorder:                  $black !default;
 // Links
 // -------------------------
 $linkColor:                 #08c !default;
-$linkColorHover:            darken($linkColor, 15%) !default;
+$linkColorHover:            darken($linkColor, 10%) !default;
+
 
 // Typography
 // -------------------------
-$baseFontSize:              12px !default;
-$baseFontFamily:            "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$baseLineHeight:            1.2 !default;
 
-$headingsFontFamily:        inherit !default; // empty to use BS default, $baseFontFamily
-$headingsFontWeight:        bold !default;    // instead of browser default, bold
-$headingsColor:             inherit !default; // empty to use BS default, $textColor
+$sans:                      sans-serif !default;
+$serif:                     serif !default;
+
+$thin:                      100 !default;
+$light:                     300 !default;
+$regular:                   400 !default;
+$medium:                    500 !default;
+$bold:                      600 !default;
+$ultraBold:                 800 !default;
+
+$baseFontSize:              10px !default;
+$baseFontFamily:            $sans !default;
+$baseLineHeight:            22px !default;
+
+$headingsFontWeight:        $bold !default;
+$headingsFontFamily:        inherit !default;
+$headingsColor:             inherit !default;
+
+// Borders
+// -------------------------
+$borderColor:               $black !default;
 
 // Buttons
 // -------------------------
 $btnBackground:             $white !default;
 $btnBackgroundHighlight:    darken($white, 10%) !default;
-$btnBorder:                 #bbb !default;
+$btnBorder:                 darken($white, 10%) !default;
+
+// Animation
+// -------------------------
+$time:                      0.3s;
+$ease-default:              ease;

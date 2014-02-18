@@ -1,0 +1,88 @@
+//
+// @extends
+// ---------------------------
+
+// Animations
+// -----------
+
+// All
+%transition-all { @include transition(all $time $ease-default); }
+%transition-all-fast { @include transition(all $time*0.5 $ease-default); }
+%transition-all-slow { @include transition(all $time*1.5 $ease-default); }
+%transition-all-super-slow { @include transition(all $time*2 $ease-default); }
+
+// Opacity
+%transition-opacity { @include transition(opacity $time $ease-default); }
+%transition-opacity-fast { @include transition(opacity $time*0.5 $ease-default); }
+%transition-opacity-slow { @include transition(opacity $time*1.5 $ease-default); }
+%transition-opacity-super-slow { @include transition(opacity $time*2 $ease-default); }
+
+// Transform
+%transition-transform { @include transition(transform $time $ease-default); }
+%transition-transform-fast { @include transition(transform $time*0.5 $ease-default); }
+%transition-transform-slow { @include transition(transform $time*1.5 $ease-default); }
+%transition-transform-super-slow { @include transition(transform $time*2 $ease-default); }
+
+// Background color
+%transition-background-color { @include transition(background-color $time $ease-default); }
+
+// Transition delays
+%transition-no-delay { @include transition-delay(0s); }
+%transition-short-delay { @include transition-delay(0s); }
+%transition-standard-delay { @include transition-delay(0s); }
+%transition-long-delay { @include transition-delay(0s); }
+
+// Translate3d reset
+%translate3d-reset { @include translate3d(0,0,0); }
+
+
+// Layout
+// -------
+
+%spread {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    display: block;
+}
+
+%horizontal-center {
+    position: absolute;
+    left: 50%;
+    @include transform(translateX(-50%));
+}
+
+%vertical-center {
+    position: absolute;
+    top: 50%;
+    @include transform(translateY(-50%));
+}
+
+%absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translateX(-50%) translateY(-50%));
+}
+
+// Responsive media embeds
+// -------------------------
+
+.embed-container {
+    position: relative;
+    height: 0;
+    padding-bottom: 56.25%; // 16:9 aspect ratio (adjust accordingly)
+    overflow: hidden;
+    iframe, object, embed, video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
