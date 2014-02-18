@@ -1,20 +1,20 @@
 # Minimal Boilerplate for HTML / CSS / JS
 
-This boilerplate is adapted from the css of [Twitter bootstrap](http://twitter.github.com/bootstrap) and some of the patterns found in [Html5 Boilerplate](http://html5boilerplate.com). It packages in common build functionality using fabric as well as essential libraries setup for require.js.
+This boilerplate is adapted from patterns found in [HTML5 Boilerplate](http://html5boilerplate.com). It bundles in common build functionality using Fabric and RequireJS.
 
-- Requires: [sass](http://sass-lang.com), [fabric](http://docs.fabfile.org/en/1.5/), git, [compass](http://compass-style.org/)
-- Comes ready with: [Require.js](http://requirejs.org), [selectivizr](http://selectivizr.com/)
-- Includes these packaged Require.js plugins: [domReady](https://github.com/requirejs/domReady), [text](https://github.com/requirejs/text)
-- Also packaged and available for use with Require.js:, [jQuery](http://jquery.com), [modernizr](http://modernizr.com), [Underscore](http://underscorejs.org), [Backbone](http://backbonejs.org)
+- Requires: [sass](http://sass-lang.com), [fabric](http://docs.fabfile.org/en/1.5/), git, [compass](http://compass-style.org/), [grunt](http://gruntjs.com/) (as a task runner)
+- Comes ready with: [RequireJS](http://requirejs.org)
+- Also packaged and available for use with Require.js:, [jQuery](http://jquery.com), [Lo-Dash](http://lodash.com/), [Backbone](http://backbonejs.org)
 
 
 ## How to start:
 1. Edit your `index.html` file of course
-1. By default your javascript starts at `/static/js/main.js`
+1. Run `npm install` to grab all the necessary dev dependencies listed in `package.json`
+1. Use Grunt for all development worflow tasks. [Jump to the "workflow" section](#dev-workflow).
+1. By default, your javascript entry point begins at `/static/js/main.js`
 1. JS configuration settings are at `/static/js/config.js`
-1. Your JS build description file is at `/static/js/app.build.js`
-1. Compass configuration is at /static/css/config.rb,  base url can be set there or with an environment variable
-1. run `fab css.compile` or `fab css.watch` to create your .css file
+1. Your JS build description file is at `/static/js/app.build.js`. Grunt is referencing the configuration options in `Gruntfile.js`
+1. Compass configuration is at `/static/css/config.rb`, base url can be set there or with an environment variable
 
 ## How to deploy:
 - deploy to staging: ```fab deploy.staging``` _(requires setup)_
@@ -28,26 +28,31 @@ To unify coding styles (spacing, line-endings, etc) between different editors an
 
 # CSS w/ SASS + COMPASS
 
-1. all new sass files should go into `/static/css/src/` and you should always use SASS
-1. try and follow the twitter bootstrap naming conventions that are setup
-1. add important reusable items/mixins for future projects
+This boilerplate assumes "mobile-first" philosophy as a default. If this goes against your project's approach, simply remove the media query definitions in `styles.scss` and related files in the `mq` directory.  
 
-## Install SASS ##
+1. All new sass files reside in `/static/css/src/` and assume SCSS syntax
+1. As a general rule of thumb and best practice, the @extend method should be used whenever possible over @mixin. `_.extends.scss` can be leveraged for some useful methods to extend into your app's style definitions. Feel free to add your own or modify as you fit. 
+
+## Install SASS & Compass ##
     sudo gem install sass compass
 
 
-## Compile/ Watch ##
-
-
+## Dev Workflow
 
 ### Option 1 ###
-    compass watch static/css
+Use [Grunt](http://gruntjs.com) as a task runner for CSS, JS and running a local server (http://0.0.0.0:8000 is the default).
+
+#### Grunt Commands ####
+1. `$ grunt`: Compiles css and lints all javascript (within `js/app`)
+1. `$ grunt dev`: Runs a local server and watches for css/js changes
+1. `$ grunt prod`: Builds out production code, minifies and concatenates all css and js
+
 
 ### Option 2 ###
 We are normally in a python project, and ar using fabric.  So we wrote up fabric scripts to watch and compress.
 
-
     fab css.watch
+
 or compressed:
 
     fab css.compile
