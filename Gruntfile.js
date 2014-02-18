@@ -7,17 +7,22 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         requirejs: {
-            mainJS: {
+            main: {
                 options: {
-                    baseUrl: "static/js/app",
+                    baseUrl: "static/js",
+                    name: "main",
+                    include: "libs/require",
                     wrap: true,
+                    inlineText: true,
+                    findNestedDependencies: true,
                     preserveLicenseComments: false,
-                    optimize: "uglify",
+                    skipModuleInsertion: false,
+                    optimize: "uglify2",
                     optimizeCss: "standard",
                     mainConfigFile: "static/js/config.js",
                     out: "static/js/main-built.js",
 
-                    /*********
+                    /*
                      * https://github.com/SlexAxton/require-handlebars-plugin
                      */
                     pragmasOnSave: {
@@ -106,21 +111,43 @@ module.exports = function(grunt) {
         grunt.config(['jshint', 'changed'], filepath);
     });
 
+    grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-sass');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-compass');
-    grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-connect');
 
+    // Default task(s).
+    grunt.registerTask('default', "Run for local development.", function() {
+        grunt.log.writeln('\n\n\n\n (⌐■_■) \n\nRunning the "default" task...\n\n\n\n');
+        grunt.task.run('compass');
+        grunt.task.run('jshint');
+    });
+
+    // Dev task(s).
+    grunt.registerTask('dev', "Run for local development.", function() {
+        grunt.log.writeln('\n\n\n\n d[-_-]b \n\n- Compiling css... \n- Running a server... \n- Watching for changes... \n\n\n\n');
+        grunt.task.run('compass');
+        grunt.task.run('connect');
+        grunt.task.run('watch');
+    });
+
+    // Production/Build task(s).
+    grunt.registerTask('prod', "Run for production development.", function() {
+        grunt.log.writeln('\n\n\n\n ()==[:::::::::::::> \n\nBuilding out a "production" environment...\n\n\n\n');
+        grunt.task.run('requirejs:main');
+        grunt.task.run('compass');
+    });
+
     // Default task
-    grunt.registerTask('default', ['compass']);
+    //grunt.registerTask('default', ['compass']);
 
     // JSHint task
-    grunt.registerTask('dev', ['default', 'connect', 'watch']);
+    //grunt.registerTask('dev', ['default', 'connect', 'watch']);
 
     // Build task
-    grunt.registerTask('build', ['default', 'requirejs:mainJS']);
+    //grunt.registerTask('build', ['default', 'requirejs:mainJS']);
 
 
 };
