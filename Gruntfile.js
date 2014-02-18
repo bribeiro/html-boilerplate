@@ -120,14 +120,14 @@ module.exports = function(grunt) {
 
     // Default task(s).
     grunt.registerTask('default', "Run for local development.", function() {
-        grunt.log.writeln('\n\n\n\n (⌐■_■) \n\nRunning the "default" task...\n\n\n\n');
+        grunt.log.writeln('\n================================ \n Running the "default" task...\n================================');
         grunt.task.run('compass');
         grunt.task.run('jshint');
     });
 
     // Dev task(s).
     grunt.registerTask('dev', "Run for local development.", function() {
-        grunt.log.writeln('\n\n\n\n d[-_-]b \n\n- Compiling css... \n- Running a server... \n- Watching for changes... \n\n\n\n');
+        grunt.log.writeln('\n============================== \n- Compiling css... \n- Running a server... \n- Watching for changes... \n==============================');
         grunt.task.run('compass');
         grunt.task.run('connect');
         grunt.task.run('watch');
@@ -135,7 +135,7 @@ module.exports = function(grunt) {
 
     // Production/Build task(s).
     grunt.registerTask('prod', "Run for production development.", function() {
-        grunt.log.writeln('\n\n\n\n ()==[:::::::::::::> \n\nBuilding out a "production" environment...\n\n\n\n');
+        grunt.log.writeln('\n======================================= \n Building a production environment...\n=======================================');
         grunt.task.run('requirejs:main');
         grunt.task.run('compass');
     });
