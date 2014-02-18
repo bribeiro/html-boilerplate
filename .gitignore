@@ -1,26 +1,16 @@
-.DS_Store
-*.pyc
-build
-dist
-.DS_Store
+
+
+
 *.local.py
-local_settings.py
-.project
-.pydevproject
-.settings
-.coverage
 MANIFEST
-.idea
 .vagrant
 celerybeat.pid
 *.sw[op]
-collected-static/
 nohup.out
 project/settings/hosts/localhost.py
 *.css
-project/static/img/sprites/icons-*.png
-project/static/img/sprites/ui-*.png
-static/img/sprites/icons-*.png
+icons-*.png
+ui-*.png
 
 # Numerous always-ignore extensions
 *.diff
