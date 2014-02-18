@@ -1,17 +1,3 @@
-
-
-
-*.local.py
-MANIFEST
-.vagrant
-celerybeat.pid
-*.sw[op]
-nohup.out
-project/settings/hosts/localhost.py
-*.css
-icons-*.png
-ui-*.png
-
 # Numerous always-ignore extensions
 *.diff
 *.err
@@ -102,3 +88,15 @@ collected-static/*
 uploads/*
 !collected-static/.gitkeep
 !uploads/README
+
+*.local.py
+MANIFEST
+.vagrant
+celerybeat.pid
+*.sw[op]
+nohup.out
+project/settings/hosts/localhost.py
+*.css
+icons-*.png
+ui-*.png
+main-*.js
