@@ -2,9 +2,9 @@
 
 # Set this to the root of your project when deployed:
 http_path = "./"
-css_dir = "./public/css"
-sass_dir = "./src/css/"
-images_dir = "./src/img"
+css_dir = "public/css"
+sass_dir = "src/css"
+images_dir = "src/img"
 # http_images_path = "static/img"
 
 output_style = :compressed # or :nested or :compact or :compressed

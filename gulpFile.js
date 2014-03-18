@@ -33,7 +33,7 @@ gulp.task('minify-html', function() {
             'js': 'js/main-built.js'
         }))
         .pipe(minifyHTML(opts))
-        .pipe(gulp.dest('./public/'))
+        .pipe(gulp.dest('./public/'));
 });
 
 
@@ -75,7 +75,7 @@ gulp.task('requirejsBuild', function(a, b, c) {
         }
     }).pipe(uglify({
         outSourceMap: true
-    })).pipe(gulp.dest('./public/js'));;
+    })).pipe(gulp.dest('./public/js'));
 
 });
 
@@ -94,13 +94,9 @@ gulp.task('compass', function() {
     gulp.src('./src/css/styles.scss')
         .pipe(compass({
             config_file: './config.rb',
-            css: './',
-            sass: 'scss',
-            style: 'compressed',
-            relative: true,
-            comments: false
+            css: 'public/css',
+            sass: 'src/css'
         }))
-        .pipe(minifyCSS())
         .pipe(gulp.dest('./public/css'));
 });
 
