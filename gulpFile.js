@@ -2,9 +2,7 @@
 var gulp = require('gulp'),
 
     // Include Our Plugins
-    jshint = require('gulp-jshint'),
     compass = require('gulp-compass'),
-    sass = require('gulp-sass'),
     rjs = require('gulp-requirejs'),
     imagemin = require('gulp-imagemin'),
     minifyCSS = require('gulp-minify-css'),
